@@ -37,7 +37,7 @@ A backend GraphQL API for managing mixed martial arts (MMA) data: fighters, even
 ## Project Structure
 ```
 mma-app/
-├─ .env.example         # sample environment variables
+├─ .env         # sample environment variables
 ├─ README.md            # this file
 ├─ package.json
 ├─ tsconfig.json
