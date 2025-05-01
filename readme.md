@@ -1,6 +1,6 @@
 # MMA Platform GraphQL API
 
-A backend GraphQL API for managing mixed martial arts (MMA) data: fighters, events, fights, and rankings. Built with TypeScript, TypeORM, and Apollo Server.
+A backend GraphQL API for managing mixed martial arts (MMA) data: fighters, events, fights, and rankings. Built with TypeORM.
 
 ---
 
@@ -37,7 +37,7 @@ A backend GraphQL API for managing mixed martial arts (MMA) data: fighters, even
 ## Project Structure
 ```
 mma-app/
-├─ .env         # sample environment variables
+├─ .env       # sample environment variables
 ├─ README.md            # this file
 ├─ package.json
 ├─ tsconfig.json
@@ -105,6 +105,56 @@ Use the **Docs** sidebar for type definitions and operation templates.
 
 ## API Usage Examples
 ### List all weight classes
+```graphql
+query ListAllWeightClasses {
+  weightClasses {
+    name
+    minWeight
+    maxWeight
+  }
+}
+```
+
+### Create a Weight Class
+```graphql
+mutation {
+  createWeightClass(
+    name: "Heavyweight",
+    minWeight: 206,
+    maxWeight: 265
+  ) {
+    name
+    minWeight
+    maxWeight
+  }
+}
+```
+
+### Create an Event
+```graphql
+mutation {
+  createEvent(
+    name: "UFC 315",
+    eventDate: "2025-11-01",
+    location: "Las Vegas, NV"
+  ) {
+    id
+    name
+    eventDate
+    location
+  }
+}
+```
+
+### List all weight classes
+```graphql
+query ListAllWeightClasses {
+  weightClasses {
+    name
+    minWeight
+    maxWeight
+  }
+}
 ```graphql
 query {
   weightClasses {
@@ -194,7 +244,6 @@ query {
 
 ## Further Documentation
 - **Migrations**: For production, disable `synchronize` in `data-source.ts` and use TypeORM migrations
-
 ---
 
 Happy fighting and ranking!
